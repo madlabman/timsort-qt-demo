@@ -1,0 +1,100 @@
+﻿<html>
+<body>
+<p>Задача заключается в следующем: есть часть массива, которая уже отсортирована, и требуется вставить остальные элементы массива в отсортированную часть, сохранив при этом упорядоченность. Для этого на каждом шаге алгоритма мы выбираем один из элементов входных данных и вставляем его на нужную позицию в уже отсортированной части массива, до тех пор пока весь набор входных данных не будет отсортирован. Метод выбора очередного элемента из исходного массива произволен, однако обычно (и с целью получения устойчивого алгоритма сортировки), элементы вставляются по порядку их появления во входном массиве.
+</p><p>Так как в процессе работы алгоритма могут меняться местами только соседние элементы, каждый обмен уменьшает число инверсий на единицу. Следовательно, количество обменов равно количеству инверсий в исходном массиве вне зависимости от реализации сортировки. Максимальное количество инверсий содержится в массиве, элементы которого отсортированы по невозрастанию. Число инверсий в таком массиве [n(n-1)]/2.
+</p><p>Алгоритм работает за O(n + k), где k — число обменов элементов входного массива, равное числу инверсий. В среднем и в худшем случае — за O(n^2). Минимальные оценки встречаются в случае уже упорядоченной исходной последовательности элементов, наихудшие — когда они расположены в обратном порядке.
+</p>
+<span class="mw-headline" id=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B">Пример работы</span></h2>
+<p>Пример работы алгоритма для массива [5, 4, 3, 2, 1]</p>
+<table style="background-color:#CCC;margin:0.5px">
+<tr>
+<th style="background-color:#EEE"> До
+</th>
+<th style="background-color:#EEE"> После
+</th>
+<th style="background-color:#EEE"> Описание шага
+</th></tr>
+<tr>
+<td colspan="3"><i>Первый проход (проталкиваем второй элемент — </i><b>2</b><i>)</i>
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> <b>5 2</b> 4 3 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> <b>2 5</b> 4 3 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Алгоритм сравнивает второй элемент с первым и меняет их местами.
+</td></tr>
+<tr>
+<td colspan="3"><i>Второй проход (проталкиваем третий элемент — </i><b>4</b><i>)</i>
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> 2 <b>5 4</b> 3 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> 2 <b>4 5</b> 3 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Сравнивает третий со вторым и меняет местами
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> <b>2 4</b> 5 3 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> <b>2 4</b> 5 3 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Второй и первый отсортированы, swap не требуется
+</td></tr>
+<tr>
+<td colspan="3"><i>Третий проход (проталкиваем четвертый — </i><b>3</b><i>)</i>
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> 2 4 <b>5 3</b> 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> 2 4 <b>3 5</b> 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Меняет четвертый и третий местами
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> 2 <b>4 3</b> 5 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> 2 <b>3 4</b> 5 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Меняет третий и второй местами
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> <b>2 3</b> 4 5 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> <b>2 3</b> 4 5 1
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Второй и первый отсортированы, swap не требуется
+</td></tr>
+<tr>
+<td colspan="3"><i>Четвертый проход (проталкиваем пятый элемент — </i><b>1</b><i>)</i>
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> 2 3 4 <b>5 1</b>
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> 2 3 4 <b>1 5</b>
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Меняет пятый и четвертый местами
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> 2 3 <b>4 1</b> 5
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> 2 3 <b>1 4</b> 5
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Меняет четвертый и третий местами
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> 2 <b>3 1</b> 4 5
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> 2 <b>1 3</b> 4 5
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Меняет третий и второй местами
+</td></tr>
+<tr>
+<td style="background-color:#FFF;padding:2px 10px"> <b>2 1</b> 3 4 5
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> <b>1 2</b> 3 4 5
+</td>
+<td style="background-color:#FFF;padding:2px 10px"> Меняет второй и первый местами. Массив отсортирован.
+</td></tr></table>
+</body>
+</html>

@@ -1,0 +1,156 @@
+﻿<html>
+
+<head>
+
+</head>
+
+<body>
+
+<p>Сор­ти­ров­ка слия­ни­ем — ве­ро­ят­но, один из са­мых про­стых ал­го­рит­мов
+сор­ти­ров­ки (сре­ди «быст­рых» ал­го­рит­мов). Осо­бен­но­стью это­го ал­го­рит­ма
+яв­ля­ет­ся то, что он ра­бо­та­ет с эле­мен­та­ми мас­си­ва пре­иму­ще­ствен­но
+по­сле­до­ва­тель­но, бла­го­да­ря че­му имен­но этот ал­го­ритм ис­поль­зу­ет­ся
+при сор­ти­ров­ке в си­сте­мах с раз­лич­ны­ми ап­па­рат­ны­ми огра­ни­че­ни­я­ми
+(на­при­мер, при сор­ти­ров­ке дан­ных на жёст­ком дис­ке, или да­же на маг­нит­ной
+лен­те). Кро­ме то­го, сор­ти­ров­ка слия­ни­ем — чуть ли не един­ствен­ный ал­го­ритм,
+ко­то­рый мо­жет быть эф­фек­тив­но ис­поль­зо­ван для сор­ти­ров­ки та­ких ст­рук­тур
+дан­ных, как свя­зан­ные спис­ки. По­сле­до­ва­тель­ная ра­бо­та с эле­мен­та­ми
+мас­си­ва зна­чи­тель­но уве­ли­чи­ва­ет ско­рость сор­ти­ров­ки в си­сте­мах с
+кэ­ши­ро­ва­ни­ем.</p>
+
+<p>Сор­ти­ров­ка слия­ни­ем — ста­биль­ный ал­го­ритм сор­ти­ров­ки. Это озна­ча­ет,
+что по­ря­док «рав­ных» эле­мен­тов не из­ме­ня­ет­ся в ре­зуль­та­те ра­бо­ты
+ал­го­рит­ма. В не­ко­то­рых за­да­чах это свой­ство до­ста­точ­но важ­но.</p>
+
+<p>Этот ал­го­ритм был пред­ло­жен Джо­ном фон Ней­ма­ном в 1945 го­ду</p>
+
+<p>Вез­де в лек­ции <strong>эле­мен­ты мас­си­вов ну­ме­ру­ют­ся с ну­ля</strong>.</p>
+
+<h3><span style='mso-fareast-font-family:"Times New Roman"'>Про­це­ду­ра слия­ния<o:p></o:p></span></h3>
+
+<p>До­пу­стим, у нас есть два от­сор­ти­ро­ван­ных мас­си­ва <span
+class=equationtext>A</span> и <span class=equationtext>B</span> раз­ме­ра­ми n<span style=" font-size:10pt; vertical-align:sub;">a</span></span>и n<span style=" font-size:10pt; vertical-align:sub;">b</span> со­от­вет­ствен­но, и мы хо­тим объ­еди­нить их эле­мен­ты в
+один боль­шой от­сор­ти­ро­ван­ный мас­сив <span class=equationtext>C</span> <span
+class=GramE>раз­ме­ром n<span style=" font-size:10pt; vertical-align:sub;">a</span> + n<span style=" font-size:10pt; vertical-align:sub;">b</span>.</span> Для это­го мож­но при­ме­нить <em>про­це­ду­ру
+слия­ния</em>, суть ко­то­рой за­клю­ча­ет­ся в по­вто­ряю­щем­ся «от­де­ле­нии»
+эле­мен­та, наи­мень­ше­го из двух имею­щих­ся в на­ча­лах ис­ход­ных мас­си­вов,
+и при­со­еди­не­нии это­го эле­мен­та к кон­цу ре­зуль­ти­рую­ще­го мас­си­ва.
+Эле­мен­ты мы пе­ре­но­сим до тех пор, по­ка один из ис­ход­ных мас­си­вов не
+за­кон­чит­ся. По­сле это­го остав­ший­ся «хвост» од­но­го из вход­ных мас­си­вов
+до­пи­сы­ва­ет­ся в ко­нец ре­зуль­ти­рую­ще­го мас­си­ва. При­мер ра­бо­ты про­це­ду­ры
+по­ка­зан на ри­сун­ке:</p>
+
+<div>
+
+<p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman";
+mso-no-proof:yes'><img width=464 height=248 id="_x0000_i1031"
+src="img_merge.png"
+alt="При­мер ра­бо­ты про­це­ду­ры слия­ния"></span><span style='mso-fareast-font-family:
+"Times New Roman"'><o:p></o:p></span></p>
+
+<p>Рис. 1. При­мер ра­бо­ты про­це­ду­ры слия­ния</p>
+
+</div>
+
+<p>Ал­го­ритм слия­ния фор­маль­но мож­но за­пи­сать сле­дую­щим об­ра­зом:<o:p></o:p></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184' id="eq_1">
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img
+  width=183 height=295 id="_x0000_i1030"
+  src="img_alg_1.png"
+  alt="\begin{array}{l}&#13;&#10;a \leftarrow 0;\ b \leftarrow 0;\\&#13;&#10;\text{While }a &lt; n_a\text{ and }b &lt; n_b\\&#13;&#10;\left|\quad\begin{array}{l}&#13;&#10;	\text{If }A[a]\leqslant B[b]\\&#13;&#10;	\left|\quad\begin{array}{l}&#13;&#10;		C[a+b] \leftarrow A[a];\\&#13;&#10;		a \leftarrow a+1;&#13;&#10;	\end{array}\right.\\&#13;&#10;	\text{Else}\\&#13;&#10;	\left|\quad\begin{array}{l}&#13;&#10;		C[a+b] \leftarrow B[b];\\&#13;&#10;		b \leftarrow b+1;&#13;&#10;	\end{array}\right.\\&#13;&#10;	\text{End;}&#13;&#10;\end{array}\right.\\&#13;&#10;\text{End;}\\&#13;&#10;\text{If }a &lt; n_a\\&#13;&#10;\left|\quad\text{Copy remain part of A}\right.\\&#13;&#10;\text{Else}\\&#13;&#10;\left|\quad\text{Copy remain part of B}\right.\\&#13;&#10;\text{End;}&#13;&#10;\end{array}"></span><span
+  style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>(1)<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p>Для обес­пе­че­ния ста­биль­но­сти ал­го­рит­ма сор­ти­ров­ки нуж­но, что­бы
+в слу­чае ра­вен­ства эле­мен­тов тот эле­мент, что идёт рань­ше во вход­ном
+мас­си­ве, по­па­дал в ре­зуль­ти­рую­щий мас­сив в первую оче­редь. Мы уви­дим
+да­лее, что ес­ли два эле­мен­та по­па­ли в раз­ные мас­си­вы (<span
+class=equationtext>A</span> и <span class=equationtext>B</span>), то тот эле­мент,
+что шёл рань­ше, по­па­дёт в мас­сив <span class=equationtext>A</span>. Сле­до­ва­тель­но,
+в слу­чае ра­вен­ства эле­мент из мас­си­ва <span class=equationtext>A</span>
+дол­жен иметь при­о­ри­тет. По­это­му в ал­го­рит­ме <span class=SpellE>стои́т</span>
+знак <span class=equationtext>&lt;</span>= </span>вме­сто <span class=GramE><span class=equationtext>&lt;</span>
+при</span> срав­не­нии эле­мен­тов.</p>
+
+<p>Не­до­стат­ком пред­став­лен­но­го ал­го­рит­ма яв­ля­ет­ся не­об­хо­ди­мость
+до­пи­сы­вать остав­ший­ся ку­сок, из-за че­го при даль­ней­ших мо­дифи­ка­ци­ях
+ал­го­рит­ма нам при­дёт­ся пи­сать мно­го по­вто­ряю­ще­го­ся ко­да. Что­бы
+это­го из­бе­жать, бу­дем ис­поль­зо­вать чуть ме­нее эф­фек­тив­ный, но бо­лее
+ко­рот­кий ал­го­ритм, в ко­то­ром ко­пи­ро­ва­ние «хво­ста» встрое­но в ос­нов­ной
+цикл:<o:p></o:p></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:1.5pt;mso-yfti-tbllook:1184' id="eq_2">
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;mso-yfti-lastrow:yes'>
+  <td width="100%" style='width:100.0%;padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='mso-fareast-font-family:"Times New Roman";mso-no-proof:yes'><img
+  width=295 height=194 id="_x0000_i1028"
+  src="img_alg_2.png"
+  alt="\begin{array}{l}&#13;&#10;a \leftarrow 0;\ b \leftarrow 0;\\&#13;&#10;\text{While }a+b &lt; n_a+n_b\\&#13;&#10;\left|\quad\begin{array}{l}&#13;&#10;	\text{If }b\geqslant n_b\text{ or }\left(a&lt;n_a\text{ and }A[a]\leqslant B[b]\right)\\&#13;&#10;	\left|\quad\begin{array}{l}&#13;&#10;		C[a+b] \leftarrow A[a];\\&#13;&#10;		a \leftarrow a+1;&#13;&#10;	\end{array}\right.\\&#13;&#10;	\text{Else}\\&#13;&#10;	\left|\quad\begin{array}{l}&#13;&#10;		C[a+b] \leftarrow B[b];\\&#13;&#10;		b \leftarrow b+1;&#13;&#10;	\end{array}\right.\\&#13;&#10;	\text{End;}&#13;&#10;\end{array}\right.\\&#13;&#10;\text{End;}&#13;&#10;\end{array}"></span><span
+  style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman"'>(2)<o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p>Оче­вид­но, вре­мя ра­бо­ты про­це­ду­ры слия­ния <span class=GramE>со­став­ля­ет
+O(n<span style=" font-size:10pt; vertical-align:sub;">a</span>+n<span style=" font-size:10pt; vertical-align:sub;">b</span>)</span>.</span></p>
+
+<h3><span style='mso-fareast-font-family:"Times New Roman"'>Сор­ти­ров­ка слия­ни­ем<o:p></o:p></span></h3>
+
+<p>Про­це­ду­ра слия­ния тре­бу­ет два от­сор­ти­ро­ван­ных мас­си­ва. За­ме­тив,
+что мас­сив из од­но­го эле­мен­та по опре­де­ле­нию яв­ля­ет­ся от­сор­ти­ро­ван­ным,
+мы мо­жем осу­ще­ствить сор­ти­ров­ку сле­дую­щим об­ра­зом:</p>
+
+<ol start=1 type=1>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-fareast-font-family:
+     "Times New Roman"'>раз­бить имею­щие­ся эле­мен­ты мас­си­ва на па­ры и
+     осу­ще­ствить слия­ние эле­мен­тов каж­дой па­ры, по­лу­чив от­сор­ти­ро­ван­ные
+     це­поч­ки дли­ны 2 (кро­ме, быть мо­жет, од­но­го эле­мен­та, для ко­то­ро­го
+     не на­шлось па­ры);<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-fareast-font-family:
+     "Times New Roman"'>раз­бить имею­щие­ся от­сор­ти­ро­ван­ные це­поч­ки на
+     па­ры, и осу­ще­ствить слия­ние це­по­чек каж­дой па­ры;<o:p></o:p></span></li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo1;tab-stops:list 36.0pt'><span style='mso-fareast-font-family:
+     "Times New Roman"'>ес­ли чис­ло от­сор­ти­ро­ван­ных це­по­чек боль­ше еди­ни­цы,
+     пе­рей­ти к ша­гу 2.<o:p></o:p></span></li>
+</ol>
+
+<p>Вре­мя ра­бо­ты сор­ти­ров­ки слия­ни­ем <span class=GramE>со­став­ля­ет O(n * ln(n)).</span> При­мер ра­бо­ты
+про­це­ду­ры по­ка­зан на ри­сун­ке:</p>
+
+<div>
+
+<p class=MsoNormal><span style='mso-fareast-font-family:"Times New Roman";
+mso-no-proof:yes'><img width=464 height=360 id="_x0000_i1025"
+src="img_mergeSort.png"
+alt="При­мер ра­бо­ты ре­кур­сив­но­го ал­го­рит­ма сор­ти­ров­ки слия­ни­ем"></span><span
+style='mso-fareast-font-family:"Times New Roman"'><o:p></o:p></span></p>
+
+<p>Рис. 2. При­мер ра­бо­ты ре­кур­сив­но­го ал­го­рит­ма сор­ти­ров­ки слия­ни­ем</p>
+
+</div>
+
+<p><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>
